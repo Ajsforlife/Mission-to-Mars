@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for
 from flask_pymongo import PyMongo
-from Mission_to_Mars_challenge import hemisphere_image_urls
+#from Mission_to_Mars_challenge import hemisphere_image_urls
 import scraping
 
 #flask setup
@@ -14,7 +14,7 @@ mongo = PyMongo(app)
 @app.route("/")
 def index():
    mars = mongo.db.mars.find_one()
-   return render_template("index.html", mars=mars, hemisphere_image_urls=hemisphere_image_urls)
+   return render_template("index.html", mars=mars)
 
 @app.route("/scrape")
 def scrape():
